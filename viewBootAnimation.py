@@ -1,14 +1,23 @@
 #!/usr/bin/env python
-import sys
-import zipfile
+import argparse
+import io
+import os
 import pygame
 from pygame.locals import *
-import io
+import sys
+import zipfile
 
-if len(sys.argv) < 2:
-    bootanim = zipfile.ZipFile("bootanimation.zip")
-else:
-    bootanim = zipfile.ZipFile(sys.argv[1])
+def fyle(x):
+    if not os.path.isfile(x):
+        raise argparse.ArgumentTypeError("{0} is not a file".format(x))
+    return x
+
+parser = argparse.ArgumentParser()
+parser.add_argument("input", type=fyle, metavar="FILE", nargs='?', default="bootanimation.zip",
+                    help="path to the video file to convert")
+args = parser.parse_args()
+
+bootanim = zipfile.ZipFile(args.input)
 desc = bootanim.open("desc.txt")
 width, height, fps = desc.readline().strip().split(" ")
 print "\nSize: " + width + " x " + height + " @ " + fps + "fps"

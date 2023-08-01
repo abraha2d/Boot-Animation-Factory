@@ -87,7 +87,7 @@ if args.extract:
         os.makedirs("tmp")
 
     bar = progressbar.ProgressBar(max_value=videoStream.frames, redirect_stdout=True)
-    for packet in bar(container.demux()):
+    for packet in bar(container.demux(videoStream)):
         for frame in packet.decode():
             if type(frame) == av.video.frame.VideoFrame:
                 frame.to_image().save(("tmp/%%0%dd.png" % numDigits) % frame.index)

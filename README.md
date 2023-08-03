@@ -1,5 +1,16 @@
 # Boot Animation Factory
 
+### Installation
+
+```bash
+pipenv install
+pipenv run ./createBootAnimation.py
+```
+
+### Usage
+
+- createBootAnimation.py
+
 ```
 usage: createBootAnimation.py [-h] [-j JOBS] [-p | -np] [-z | -nz] [-q | -nq]
                               [-ne] [-nc] [-ns] [-v]
@@ -29,6 +40,8 @@ optional arguments:
                         directories from previous run)
   -v, --version         show program's version number and exit
 ```
+
+- viewBootAnimation.py
 
 ```
 usage: viewBootAnimation.py [-h] [FILE]

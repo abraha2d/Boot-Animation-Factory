@@ -9,7 +9,8 @@ pipenv run ./createBootAnimation.py
 
 ### Usage
 
-- createBootAnimation.py
+- `createBootAnimation.py -np video.mp4`
+- Common input options: `1 p 0 0`
 
 ```
 usage: createBootAnimation.py [-h] [-j JOBS] [-p | -np] [-z | -nz] [-q | -nq]
